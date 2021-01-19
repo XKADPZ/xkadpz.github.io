@@ -1,20 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hexo搭建</title>
+    <title>hexo部署</title>
     <url>/2021/01/16/hexo%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h2><p>前前后后，整理了多次，基本上的问题都处理好了。再次记录一下，中间遇到的问题。</p>
-<p>- </p>
+<a id="more"></a>
+
+<p>文章分类部分，需要在开头部分，加入<code>type:</code></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>layout</td>
+<td>Layout</td>
+<td>post或page</td>
+</tr>
+<tr>
+<td>title</td>
+<td>文章的标题</td>
+<td></td>
+</tr>
+<tr>
+<td>date</td>
+<td>创建日期</td>
+<td>文件的创建日期</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>修改日期</td>
+<td>文件的修改日期</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>是否开启评论</td>
+<td>true</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>标签</td>
+<td></td>
+</tr>
+<tr>
+<td>categories</td>
+<td>分类</td>
+<td></td>
+</tr>
+<tr>
+<td>permalink</td>
+<td>url中的名字</td>
+<td>文件名</td>
+</tr>
+</tbody></table>
 ]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
       <tags>
-        <tag>搭建</tag>
+        <tag>搭建 hexo</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>xkadpz</title>
-    <url>/2021/01/14/xkadpz/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>#测试</p>
-]]></content>
   </entry>
   <entry>
     <title>小可爱</title>
