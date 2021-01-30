@@ -85,11 +85,13 @@
 <meta property="og:url" content="http://xkadpz.github.io.com/2021/01/16/hexo%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="xkadpz">
 <meta property="og:description" content="感受前前后后，整理了多次，基本上的问题都处理好了。再次记录一下，中间遇到的问题。">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/16069544-f13ec91992d789e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/704/format/webp">
 <meta property="article:published_time" content="2021-01-16T13:24:27.000Z">
-<meta property="article:modified_time" content="2021-01-19T02:15:36.584Z">
+<meta property="article:modified_time" content="2021-01-25T00:59:38.627Z">
 <meta property="article:author" content="xkadpz">
 <meta property="article:tag" content="搭建 hexo">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/16069544-f13ec91992d789e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/704/format/webp">
 
 
 
@@ -99,7 +101,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -484,6 +486,49 @@
 <td>文件名</td>
 </tr>
 </tbody></table>
+<h3 id="1-新建-标签-和分类-页面"><a href="#1-新建-标签-和分类-页面" class="headerlink" title="1. 新建 标签 和分类 页面"></a>1. 新建 <strong>标签</strong> 和<strong>分类</strong> 页面</h3><ul>
+<li>只要在 source 文件夹下新建.md文件，并且文章前面按如下格式表明所属分类和标签就行：</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">title</span>: 自学编程成功概率有多少可能</span><br><span class="line"><span class="selector-tag">date</span>: 2017<span class="selector-tag">-05-26</span> 19<span class="selector-pseudo">:57</span><span class="selector-pseudo">:47</span></span><br><span class="line"><span class="selector-tag">tags</span>: <span class="selector-attr">[编程,感悟]</span></span><br><span class="line"><span class="selector-tag">categories</span>: 技术</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>先根目录输入命令 <code>hexo new page categories</code> 会自动新建 categorier 文件夹并生成一个index.md文件，里面的代码为：</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">title</span>: <span class="selector-tag">categories</span></span><br><span class="line"><span class="selector-tag">date</span>: 2019<span class="selector-tag">-01-30</span> 23<span class="selector-pseudo">:10</span><span class="selector-pseudo">:51</span></span><br></pre></td></tr></table></figure>
+
+<p>同理，「标签」也一样 <code>hexo new page tags</code> 生成 tags 文件夹，其中会自动生成一个index.md文件,代码为：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">title</span>: <span class="selector-tag">tags</span></span><br><span class="line"><span class="selector-tag">date</span>: 2019<span class="selector-tag">-01-30</span> 23<span class="selector-pseudo">:14</span><span class="selector-pseudo">:51</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-开始配置菜单，如「首页」、「分类」、「标签」等这些菜单"><a href="#2-开始配置菜单，如「首页」、「分类」、「标签」等这些菜单" class="headerlink" title="2. 开始配置菜单，如「首页」、「分类」、「标签」等这些菜单"></a>2. 开始配置菜单，如「首页」、「分类」、「标签」等这些菜单</h3><p>主题文件下的_config.yml</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line">  <span class="symbol">home:</span> / <span class="params">||</span> home</span><br><span class="line">  <span class="symbol">about:</span> /about/ <span class="params">||</span> user</span><br><span class="line">  <span class="symbol">archives:</span> /archives/ <span class="params">||</span> archive</span><br><span class="line">  <span class="symbol">tags:</span> /tags/ <span class="params">||</span> tags</span><br><span class="line">  <span class="symbol">categories:</span> /categories/ <span class="params">||</span> th</span><br><span class="line">  <span class="symbol">schedule:</span> /schedule/ <span class="params">||</span> calendar</span><br><span class="line">  <span class="symbol">sitemap:</span> /sitemap.xml <span class="params">||</span> sitemap</span><br><span class="line"> <span class="comment"># commonweal: /404/ || heartbeat</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable/Disable menu icons.   #菜单图标  </span></span><br><span class="line"><span class="symbol">menu_icons:</span></span><br><span class="line">    <span class="symbol">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>然后跑去 language 文件夹 zh-Hans.yml 修改中文名字，菜单就以中文显示了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: 首&amp;emsp;&amp;emsp;页</span><br><span class="line">  archives: 归&amp;emsp;&amp;emsp;档</span><br><span class="line">  categories: 分&amp;emsp;&amp;emsp;类</span><br><span class="line">  schedule: 日程表</span><br><span class="line">  sitemap: 站点地图</span><br><span class="line">  tags: 标&amp;emsp;&amp;emsp;签</span><br><span class="line">  about: 关于博主</span><br><span class="line">  search: 站内搜索</span><br><span class="line">  top: 最受欢迎</span><br><span class="line">  <span class="comment"># commonweal: 公益404</span></span><br></pre></td></tr></table></figure>
+
+<p>我们发表文章使用「tags」「categories」只需在文章开头添加如下代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">---</span></span><br><span class="line"><span class="selector-tag">title</span>: 利用<span class="selector-tag">GitHub</span>和<span class="selector-tag">HEXO</span>免费搭建个人博客高级 美化篇</span><br><span class="line"><span class="selector-tag">date</span>: 2019<span class="selector-tag">-01-29</span> 22<span class="selector-pseudo">:58</span><span class="selector-pseudo">:56</span></span><br><span class="line"><span class="selector-tag">tags</span>: <span class="selector-attr">[hexo建站,hexo部署,github部署,个人博客]</span>      #添加的标签</span><br><span class="line"><span class="selector-tag">categories</span>: <span class="selector-tag">hexo</span>博客                              #添加的分类</span><br><span class="line"><span class="selector-tag">---</span></span><br></pre></td></tr></table></figure>
+
+<p>如此即可在菜单栏里的「tags」「categories」看见相应的效果。但是实际上<strong>打开是空白页面</strong> 本文的重点来了。<br> 小tips：每次的手输入 categories 我们可以在D:\blog\scaffolds\post.md 添加如下代码，这样每次新建文章，就自动有了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags:           <span class="comment">#新加</span></span><br><span class="line">categories:     <span class="comment">#新加</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Hexo-next-主题配置右侧栏的分类和标签打开的是空白"><a href="#3-Hexo-next-主题配置右侧栏的分类和标签打开的是空白" class="headerlink" title="3. Hexo next 主题配置右侧栏的分类和标签打开的是空白"></a>3. Hexo next 主题配置右侧栏的分类和标签打开的是空白</h3><p>先前 categorier 文件夹（D:\blog\source\categories），里面的 index.md 文件打开，修改（即添加一行）为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2018-01-23 17:14:51</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"categories"</span>   <span class="comment">#新添加的</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>同理，「标签」</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2018-01-23 17:14:51</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"tags"</span>     <span class="comment">#新添加的</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>保存效果为：</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/16069544-f13ec91992d789e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/704/format/webp" alt="img"></p>
+<p>tags</p>
+<h3 id="4-插播友链的设置方法"><a href="#4-插播友链的设置方法" class="headerlink" title="4. 插播友链的设置方法"></a>4. 插播友链的设置方法</h3><p>主题文件里，就在设置 menu 菜单的下面：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">social:   <span class="meta">#友链地址</span></span><br><span class="line">  GitHub: https:<span class="comment">//github.com/condorheroblog || github</span></span><br><span class="line">  E-Mail: mailto:<span class="number">2846124732</span>@qq.com || envelope</span><br><span class="line">  简书: https:<span class="comment">//www.jianshu.com/u/491bd4155f96</span></span><br><span class="line">  QQ: http:<span class="comment">//sighttp.qq.com/authd?IDKEY=f67c919702f76aff21f09284308fe39875d3f6b466780165</span></span><br><span class="line">social_icons:  <span class="meta">#友链图标</span></span><br><span class="line">  enable: <span class="literal">true</span></span><br><span class="line">  icons_only: <span class="literal">false</span></span><br><span class="line">  transition: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>提交错误：</p>
+</blockquote>
+<p>nothing to commit, working tree clean: 重新：hexo clean –&gt; hexo g –&gt; hexo d</p>
 
       
     </div>
@@ -664,6 +709,12 @@
         </div>
       </section>
 
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+
       
       <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
@@ -674,7 +725,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#感受"><span class="nav-number">1.</span> <span class="nav-text">感受</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#感受"><span class="nav-number">1.</span> <span class="nav-text">感受</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-新建-标签-和分类-页面"><span class="nav-number">1.1.</span> <span class="nav-text">1. 新建 标签 和分类 页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-开始配置菜单，如「首页」、「分类」、「标签」等这些菜单"><span class="nav-number">1.2.</span> <span class="nav-text">2. 开始配置菜单，如「首页」、「分类」、「标签」等这些菜单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Hexo-next-主题配置右侧栏的分类和标签打开的是空白"><span class="nav-number">1.3.</span> <span class="nav-text">3. Hexo next 主题配置右侧栏的分类和标签打开的是空白</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-插播友链的设置方法"><span class="nav-number">1.4.</span> <span class="nav-text">4. 插播友链的设置方法</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -740,6 +791,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
